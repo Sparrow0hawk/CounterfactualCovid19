@@ -3,6 +3,14 @@ version: "3"
 services:
   db:
     image: postgis/postgis:13-master
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1G
+        reservations:
+          cpus: '0.5'
+          memory: 0.5G
     environment:
       - POSTGRES_DB=counterfactualcovid
       - POSTGRES_USER=django
@@ -15,6 +23,14 @@ services:
   backend:
     build: ./backend
     image: cfvoc.azurecr.io/cfcov-backend:v1
+    deploy:
+      resources:
+        limits:
+          cpus: '3'
+          memory: 2G
+        reservations:
+          cpus: '2'
+          memory: 1.5G
     depends_on:
       - db
     environment:
