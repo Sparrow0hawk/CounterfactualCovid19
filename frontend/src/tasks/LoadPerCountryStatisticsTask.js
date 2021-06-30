@@ -4,7 +4,7 @@ import axios from "axios";
 class LoadPerCountryStatisticsTask {
   loadIntegratedCasesAllCountries = async (end_date) => {
     try {
-      const target = `http://localhost:8000/api/cases/real/integrated/?end_date=${end_date}`;
+      const target = `http://backend:8000/api/cases/real/integrated/?end_date=${end_date}`;
       console.debug(`Backend ${target}`);
       const response = await axios.get(target, {});
       return response.data;
@@ -16,7 +16,7 @@ class LoadPerCountryStatisticsTask {
 
   loadIntegratedCases = async (iso_code, start_date, end_date) => {
     try {
-      const target = `http://localhost:8000/api/cases/real/integrated/?iso_code=${iso_code}&start_date=${start_date}&end_date=${end_date}`;
+      const target = `http://backend:8000/api/cases/real/integrated/?iso_code=${iso_code}&start_date=${start_date}&end_date=${end_date}`;
       console.debug(`Backend ${target}`);
       const response = await axios.get(target, {});
       return response.data[0];
