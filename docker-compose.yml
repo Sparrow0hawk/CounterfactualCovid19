@@ -3,6 +3,7 @@ version: "3"
 services:
   backend:
     build: ./backend
+    image: cfcovidcr.azurecr.io/cfcov-backend:latest
     environment:
       - DJANGO_SETTINGS_MODULE=backend.settings.docker
     expose:
@@ -10,6 +11,7 @@ services:
     restart: always
   frontend:
     build: ./frontend
+    image: cfcovidcr.azurecr.io/cfcov-frontend:latest
     depends_on:
       - backend
     ports:
