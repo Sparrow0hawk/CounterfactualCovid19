@@ -28,3 +28,6 @@ db.sqlite3
 
 # VSCode
 .vscode
+
+# decouple file
+.env
